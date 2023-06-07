@@ -8,7 +8,7 @@ for (let i=0; i < shoppingList.length; i++) {
   itemWrap.setAttribute('class','item_wrap')
   const imgWrap = document.createElement('a')
   imgWrap.setAttribute('class','img_wrap')
-  imgWrap.setAttribute('href','../html/detail.html')
+  imgWrap.setAttribute('href','./detail.html')
   const itemImg = document.createElement('img')
   itemImg.setAttribute('src',shoppingList[i].src)
   itemImg.setAttribute('class','item_img')

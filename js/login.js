@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (userId.value === passId) {
             if (userPw.value === passPw) {
-                location.replace('../html/index_login.html')
+                location.replace('./index_login.html')
             } else {
                 alert.style.display = 'block'
                 noPw.style.display = 'block'
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert.style.display = 'none'
             })
         } else {
-            location.replace('../html/index_guest.html')
+            location.replace('./index_guest.html')
         }
     })
 })
