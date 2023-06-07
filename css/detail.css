@@ -751,14 +751,27 @@ body {
   font-family: "Bookk Myungjo";
   text-align: center;
 }
-.container .detail_acodian .recommened .flip .card .back {
+.container .detail_acodian .recommened .flip .card ul.back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   width: 100%;
   height: 100%;
+  font-size: 14px;
   background-color: #fff;
   border-radius: 3px;
+  padding-top: 20px;
   backface-visibility: hidden;
   transform: rotateY(180deg);
+}
+.container .detail_acodian .recommened .flip .card ul.back li:nth-child(1) {
+  width: 210px;
+  height: 225px;
+  margin-bottom: 15px;
+}
+.container .detail_acodian .recommened .flip .card ul.back li:nth-child(2) {
+  padding: 0px 20px;
 }
 .container .detail_acodian .recommened .flip:hover .card {
   transform: rotateY(180deg);
