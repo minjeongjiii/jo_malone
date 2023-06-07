@@ -369,9 +369,6 @@ body {
   font-weight: bold;
   margin: 90px 0px 35px;
 }
-.container .detail_item .right_box ul li {
-  /* &:nth-child(4) {} */
-}
 .container .detail_item .right_box ul li:nth-child(1) {
   margin-bottom: 30px;
 }
