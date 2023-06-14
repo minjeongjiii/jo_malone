@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-    });
+    })
 
     /* 비팝업 */
     $(function () {
@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalColor: '#fff',
                 position: [1200, 20]
             }); // 팝업 열기
-        });
+        })
         $('.close_popup_btn01').click(function () {
             $('#cart_popup').bPopup().close();
-        });
-    });
+        })
+    })
 
     /* 셀렉트 옵션 가격변화 */
     const select = document.getElementById('option_ml')
@@ -143,13 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
             itemPrice.innerText = '￦ 218,000'
             mainImg.src = thumImg[0].children[0].src
         }
-    });
+    })
 
     /* 상세 정보 아코디언 효과 */
     const tabOpen = document.querySelectorAll('.tab_open')
     const tabAcodian =  document.querySelectorAll('.acodian')
+    const tabName =  document.querySelectorAll('.tab_name')
     
-    for (let i=0; i < tabOpen.length; i++) {
+    for (let i=0; i < tabName.length; i++) {
         
         let status = 0 // status를 for문 안으로 넣어야 두번클릭으로 실행되는 현상이 없음
         
@@ -169,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             status = !status
         }
         
-        tabOpen[i].addEventListener('click', tabOnoff)
+        tabName[i].addEventListener('click', tabOnoff)
     }
 
     /* 리뷰 작성 */
@@ -186,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const photoBtn = document.getElementById('photo_btn')
     const addPhoto = document.getElementById('add_photo')
 
+    
     photoBtn.addEventListener('change', function(event){
         const file = event.target.files[0]
         if(file) {
@@ -205,6 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let count = 11  */
 
     addBtn.addEventListener('click', writeReview)
+    let countText = document.getElementById('count_text')
+    count = 11
 
     function writeReview (event) {
 
@@ -214,6 +218,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const reviewList = document.querySelector('.review_list')
 
         let newReview = document.createElement('div')
+
+        const today = new Date()
+        const year = today.getFullYear().toString().slice(-2)
+        const month = (today.getMonth() + 1).toString().padStart(2, '0')
+        const day = today.getDate().toString().padStart(2, '0')
+
+        const formattedDate = `${year}-${month}-${day}` // 오늘 날짜 넣기
+
+        let newDate = document.createElement('p')
+        let newDateText = document.createTextNode(formattedDate)
+        
+        newDate.setAttribute('class','new_date')
+        newDate.appendChild(newDateText)
+        newReview.appendChild(newDate)
+
         let newP = document.createElement('p')
         let newText = document.createTextNode(review.value)
 
@@ -226,8 +245,14 @@ document.addEventListener('DOMContentLoaded', () => {
         newReview.setAttribute('class', 'new_review')
         newImgBox.setAttribute('class', 'new_imgbox')
 
+        const newImg = document.querySelector('.newImg')
+
+        if(newImg) {
+            newImgBox.appendChild(newImg)
+        } 
+
         let newClose = document.createElement('span')
-        let newCloseText = document.createTextNode('X')
+        let newCloseText = document.createTextNode('삭제')
 
         newClose.appendChild(newCloseText)
         newReview.appendChild(newClose)
@@ -248,27 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         } // 리뷰 삭제
         
-        const newImg = document.querySelector('.newImg')
-
-        if(newImg) {
-            newImgBox.appendChild(newImg)
-        } 
-
-        const today = new Date()
-        const year = today.getFullYear().toString().slice(-2)
-        const month = (today.getMonth() + 1).toString().padStart(2, '0')
-        const day = today.getDate().toString().padStart(2, '0')
-
-        const formattedDate = `${year}-${month}-${day}` // 오늘 날짜 넣기
-
-        let newDate = document.createElement('p')
-        let newDateText = document.createTextNode(formattedDate)
-        
-        newDate.setAttribute('class','new_date')
-        newDate.appendChild(newDateText)
-        newReview.appendChild(newDate)
-        
-        count++
+        ++count
         countText.innerText = count + '명 참여' // 리뷰작성 누를 때마다 작성인원 증가
     } // 리뷰 글 작성
 });

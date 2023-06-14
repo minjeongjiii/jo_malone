@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
   <link rel="stylesheet" href="./font/stylesheet.css">
-  <!-- <link rel="stylesheet" href="./css/detail.scss"> -->
+  <link rel="stylesheet" href="./css/detail.scss">
   <link rel="stylesheet" href="./css/detail.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <title>조 말론 런던 공식 온라인 부티크</title>
@@ -17,7 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   
   <!-- * 사용자 js -->
-  <script src="./js/detail.js"></script>
+  <script src="./js/detail.js" defer></script>
   <script src="./js/jquery-3.6.4.min.js"></script>
   <script>
     function onOff01() {
@@ -26,8 +26,8 @@
         menu01.style.display = 'none'
       } else {
         menu01.style.display = 'block'
-      }
-    }
+      };
+    };
 
     function onOff02() {
       const menu02 = document.getElementsByClassName('me02')[0]
@@ -35,8 +35,8 @@
         menu02.style.display = 'none'
       } else {
         menu02.style.display = 'block'
-      }
-    }
+      };
+    };
 
     function onOff03() {
       const menu03 = document.getElementsByClassName('me03')[0]
@@ -44,24 +44,28 @@
         menu03.style.display = 'none'
       } else {
         menu03.style.display = 'block'
-      }
+      };
+    };
 
-    }
     /* 장바구니 수량 선택 */
-    let count = 1;
-    let priceNum = document.querySelector('#price')
+    let countNum = 1;
+    let priceNum = document.querySelector('#price');
 
     function increase() {
-      count++;
-      document.getElementById("num").innerHTML = count;
-      document.getElementById('price').innerHTML = '￦ ' + count * 218000;
-    }
+      countNum++;
+      document.getElementById("num").innerHTML = countNum;
+      document.getElementById('price').innerHTML = '￦ ' + countNum * 218000;
+    };
 
     function decrease() {
-      count--;
-      document.getElementById("num").innerHTML = count;
-      document.getElementById('price').innerHTML = '￦ ' + count * 218000;
-    }
+      countNum--;
+      document.getElementById("num").innerHTML = countNum;
+      document.getElementById('price').innerHTML = '￦ ' + countNum * 218000;
+      if(countNum <= 1) {
+        document.getElementById("num").innerHTML = 1;
+        countNum = 1;
+      };
+    };
   </script>
 </head>
 
@@ -198,7 +202,7 @@
       </div>
     </section>
     <div class="detail_acodian kor">
-      <h5>향기노트
+      <h5 class="tab_name">향기노트
         <img class="tab_open" src="./images/tab_open.png" alt="탭메뉴열기">
       </h5>
       <section class="scent_note acodian">
@@ -235,7 +239,7 @@
           </li>
         </ul>
       </section>
-      <h5>성분
+      <h5 class="tab_name">성분
         <img class="tab_open" src="./images/tab_open.png" alt="탭메뉴열기">
       </h5>
       <section class="ingredients acodian">
@@ -245,7 +249,7 @@
           Citrate, Tocopherol, Bht, Dilauryl Thiodipropionate &lt;ILN48951&gt;
         </p>
       </section>
-      <h5>배송관련
+      <h5 class="tab_name">배송관련
         <img class="tab_open" src="./images/tab_open.png" alt="탭메뉴열기">
       </h5>
       <section class="delivery acodian">
@@ -256,7 +260,7 @@
             공휴일 및 기타 휴무일에는 배송 되지 않고 배송 소요 기간에서 제외됩니다.<br/>
         </p>
       </section>
-      <h5>교환 및 환불
+      <h5 class="tab_name">교환 및 환불
         <img class="tab_open" src="./images/tab_open.png" alt="탭메뉴열기">
       </h5>
       <section class="refund acodian">
@@ -273,7 +277,7 @@
           각인이 새겨진 제품의 경우 제품의 하자가 있는 경우를 제외하곤 환불이 불가합니다.
         </p>
       </section>
-      <h5>리뷰
+      <h5 class="tab_name">리뷰
         <img class="tab_open" src="./images/tab_open.png" alt="탭메뉴열기">
       </h5>
       <section class="review acodian">
@@ -305,7 +309,7 @@
         </div>
         <div class="review_txt">
           <ul>
-            <li>★★★★★</li>
+            <li>23-05-05</li>
             <li>제가 원하던 찾던 향이에요!</li>
             <li>최*빈</li>
             <li>
@@ -314,7 +318,7 @@
               드디어 정착했어요&gt;3&lt; </li>
           </ul>
           <ul>
-            <li>★★★★☆</li>
+            <li>23-04-27</li>
             <li>선물하기 딱 좋은 호불호 없는..</li>
             <li>지*정</li>
             <li>
@@ -324,7 +328,7 @@
             </li>
           </ul>
           <ul>
-            <li>★★★★★</li>
+            <li>23-04-05</li>
             <li>그대의 취.향.저.격. 빵야!</li>
             <li>윤*지</li>
             <li>
@@ -334,7 +338,7 @@
             </li>
           </ul>
           <ul>
-            <li>★★★★☆</li>
+            <li>23-03-26</li>
             <li>잔향이 너무 좋아요</li>
             <li>이*연</li>
             <li>
@@ -344,7 +348,7 @@
             </li>
           </ul>
           <ul>
-            <li>★★★★★</li>
+            <li>23-03-14</li>
             <li>향수하면 조말론</li>
             <li>강*빈</li>
             <li>
@@ -559,9 +563,9 @@
       </div>
       <div class="amount">
         <div id="count">
-          <button onclick="increase()"><i class="fas fa-plus"></i></button>
-          <p id="num">1</p>
           <button onclick="decrease()"><i class="fas fa-minus"></i></button>
+          <p id="num">1</p>
+          <button onclick="increase()"><i class="fas fa-plus"></i></button>
         </div>
         <p id="price">￦ 218000</p>
       </div>

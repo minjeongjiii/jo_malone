@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lnbList02 = document.getElementById('lnb_list02')
     const lnbList03 = document.getElementById('lnb_list03')
     const lnbList04 = document.getElementById('lnb_list04')
-    const gnbImg = document.getElementsByClassName('gnb_img')
+    
 
     menuNew.addEventListener('mouseover', () => (
         openList(lnbList01)

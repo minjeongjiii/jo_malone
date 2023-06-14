@@ -2,14 +2,13 @@
 <html lang="ko">
 
 <head>
-  <base href="/" />
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
   <link rel="stylesheet" href="./font/stylesheet.css">
-  <!-- <link rel="stylesheet" href="./css/main.scss"> -->
+  <link rel="stylesheet" href="./css/main.scss">
   <link rel="stylesheet" href="./css/main.css">
   <title>조 말론 런던 공식 온라인 부티크</title>
   <!-- * gsap -->
@@ -19,21 +18,22 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <!-- * user -->
-  <script src="./js/main.js"></script>
-  <script src="./js/jquery-3.6.4.min.js"></script>
+  <base href="/" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/jquery-3.6.4.min.js"></script>
   <script>
     /* 롤링배너 */
     document.addEventListener('DOMContentLoaded', () => {
       let roller = document.querySelector('.rolling_list')
       roller.setAttribute('id', 'roller1')
-
+      
       let clone = roller.cloneNode(true)
       clone.setAttribute('id', 'roller2')
       document.querySelector('.rolling_banner').appendChild(clone)
-
+      
       document.querySelector('#roller1').style.left = '0px'
       document.querySelector('#roller2').style.left = document.querySelector('.rolling_list ul').offsetWidth + 'px';
-
+      
       roller.classList.add('original')
       clone.classList.add('clone')
     })
@@ -45,9 +45,9 @@
       } else {
         menu01.style.display = 'block'
       }
-
+      
     }
-
+    
     function onOff02() {
       const menu02 = document.getElementsByClassName('me02')[0]
       if (menu02.style.display == 'block') {
@@ -57,7 +57,7 @@
       }
 
     }
-
+    
     function onOff03() {
       const menu03 = document.getElementsByClassName('me03')[0]
       if (menu03.style.display == 'block') {
@@ -65,9 +65,9 @@
       } else {
         menu03.style.display = 'block'
       }
-
+      
     }
-  </script>
+    </script>
 </head>
 
 <body>
@@ -95,39 +95,39 @@
         </a>
         <ul class="lnb_wrap fix">
           <li id="menu_new">
-            <span>new</span>
+            <span><a href="./sub.html">new</a></span>
             <ul id="lnb_list01">
-              <li>블랙베리를 기념하며</li>
-              <li>블라썸 컬렉션</li>
-              <li>리틀 럭셔리</li>
-              <li>셀러브레이팅 더 로즈</li>
+              <li><a href="./sub.html">블랙베리를 기념하며</a></li>
+              <li><a href="./sub.html">블라썸 컬렉션</a></li>
+              <li><a href="./sub.html">리틀 럭셔리</a></li>
+              <li><a href="./sub.html">셀러브레이팅 더 로즈</a></li>
             </ul>
           </li>
           <li id="menu_scent">
-            <span>scent</span>
+            <span><a href="./sub.html">scent</a></span>
             <ul id="lnb_list02">
-              <li>시트러스</li>
-              <li>프루티</li>
-              <li>플로랄</li>
-              <li>라이트 플로랄</li>
-              <li>스파이시</li>
-              <li>우디</li>
+              <li><a href="./sub.html">시트러스</a></li>
+              <li><a href="./sub.html">프루티</a></li>
+              <li><a href="./sub.html">플로랄</a></li>
+              <li><a href="./sub.html">라이트 플로랄</a></li>
+              <li><a href="./sub.html">스파이시</a></li>
+              <li><a href="./sub.html">우디</a></li>
             </ul>
           </li>
           <li id="menu_shop">
-            <span>shop</span>
+            <span><a href="./sub.html">shop</a></span>
             <ul id="lnb_list03">
-              <li><a href="./sub.html" style="color: black;">코롱</a></li>
-              <li>배스 & 바디</li>
-              <li>홈 프레그런스</li>
-              <li>선물하기</li>
+              <li><a href="./sub.html">코롱</a></li>
+              <li><a href="./sub.html">배스 & 바디</a></li>
+              <li><a href="./sub.html">홈 프레그런스</a></li>
+              <li><a href="./sub.html">선물하기</a></li>
             </ul>
           </li>
           <li id="menu_about">
-            <span>about</span>
+            <span><a href="./sub.html">about</a></span>
             <ul id="lnb_list04">
-              <li>조 말론 런던의 가치</li>
-              <li>스토리</li>
+              <li><a href="./sub.html">조 말론 런던의 가치</a></li>
+              <li><a href="./sub.html">스토리</a></li>
             </ul>
           </li>
         </ul>
@@ -271,10 +271,59 @@
       </div>
     </section>
     <section class="test">
-      <div><img src="./images/test_bg.jpg" alt="맞춤테스트시작배경"></div>
+      <ul id="test_wrap">
+        <li class="test_question">
+          <div class="test_box">
+            <p id="user_name"></p>
+            <p>Moonlit Camomile Cologne<br/>문릿 캐모마일 코롱</p>
+            <p>나이트 컬렉션.<br/>
+              기회로 가득한 저녁 산책.<br/>
+              매혹적인 산뜻함을 지닌 깃털같은 잉글리쉬 캐모마일 잎과,<br/>
+              어둠이 깔린 후의 정원 사이로 보이는 푸른 문플라워가<br/>
+              어렴풋이 드리워집니다.<br/>
+              화이트 머스크의 부드러운 관능미로 감싸안아 줍니다.<br/>
+            </p>
+            <div class="answer04">
+              <span id="c07" class="test_btn">처음으로</span>
+              <span>장바구니에 담기</span>
+            </div>
+          </div>
+        </li>
+        <li class="test_question">
+          <div class="test_box">
+            <p>"오다 주웠다." 꽃다발을 건네준 친구</p>
+            <div class="answer03">
+              <span id="c05" class="test_btn">A. 꽃 향기가 정말 좋아!</span>
+              <span id="c06" class="test_btn">B. 무슨 꽃일까? 바로 검색해봐야지</span>
+            </div>
+          </div>
+        </li>
+        <li class="test_question">
+          <div class="test_box">
+            <p>여행을 떠나요 여행의 준비하는 나의 자세는?</p>
+            <div class="answer02">
+              <span id="c03" class="test_btn">A. 플랜A부터 플랜Z까지, 모두 내 계획대로 GO! </span>
+              <span id="c04"  class="test_btn">B. 내 발이 이끄는 대로, 준비는 필요없지</span>
+            </div>
+          </div>
+        </li>
+        <li class="test_question">
+          <div class="test_box">
+            <form action="">
+              <input type="text" id="input_name" placeholder="나의 이름은? 입력해줘!">
+            </form>
+            <p>오랜만에 만나는 친구와의 약속, 우리 어디서 만날까?</p>
+            <div class="answer01">
+              <span id="c01" class="test_btn">A. 웨이팅 필수! SNS에서 떠오르는 핫플레이스 카페</span>
+              <span id="c02" class="test_btn">B. 대화가 필요해! 조용하고 한적한 카페</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="test_start_bg"><img src="./images/test_bg.jpg" alt="맞춤테스트시작배경"></div>
       <div class="test_start">
         <p>Find a scent that suits you</p>
-        <span>start</span>
+        <span id="start_btn">start</span>
       </div>
     </section>
     <h1>Promotion</h1>
@@ -298,11 +347,11 @@
     <h1 style="text-align: center;">Recommendations for a special day</h1>
     <section class="tab_mood">
       <ul class="tab_label">
-        <li><span>first date</span></li>
-        <li><span>rainy day</span></li>
-        <li><span>business</span></li>
-        <li><span>anniversary</span></li>
-        <li><span>white Christmas</span></li>
+        <li><span>첫 데이트</span></li>
+        <li><span>비 오는 날</span></li>
+        <li><span>중요한 비지니스</span></li>
+        <li><span>특별한 기념일</span></li>
+        <li><span>화이트 크리스마스</span></li>
       </ul>
       <ul class="tab_sheet">
         <li class="item_box tab_on">

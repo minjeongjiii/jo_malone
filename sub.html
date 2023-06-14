@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-    <base href="/" />
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
     <title>조 말론 런던 공식 온라인 부티크</title>
     <link rel="stylesheet" href="./font/stylesheet.css">
-    <!-- <link rel="stylesheet" href="./css/sub.scss"> -->
-    <link rel="stylesheet" href="./css/sub.css"> 
+    <link rel="stylesheet" href="./css/sub.scss">
+    <link rel="stylesheet" href="./css/sub.css">
     <!-- * 로대시 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     <!-- * user -->
-    <script type="module" src="./js/sub.js" defer></script>
+    <script type="module" defer="defer" src="/static/js/sub.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/jquery-3.6.4.min.js"></script>
+    <base href="/" />
     <script>
         function onOff01() {
             const menu01 = document.getElementsByClassName('me01')[0]
@@ -148,7 +149,11 @@
         <div class="wrap">
             <section class="cologne_list" id="cologne_list"></section>
         </div>
-        <!-- <div id="popup" class="pop_wrap"></div> -->
+        <div id="pagination_container">
+            <div class="prev_btn"><img src="./images/left_arrow01.png" alt="페이지이동좌측화살표"></div>
+            <div class="num_btn_wrap"><span>1</span></div>
+            <div class="next_btn"><img src="./images/right_arrow01.png" alt="페이지이동우측화살표"></div>
+        </div>
     </div>
     <div class="popup_wrap" id="popup_wrap">
         <div class="popup_inner">
@@ -176,18 +181,6 @@
             <div class="pop_btn" id="pop_btn"><img src="./images/closeBtn.png" alt="팝업창닫기버튼"></div>
         </div>
     </div>
-    <div id="pagination"></div>
-    <!-- <ul class="pagination">
-        <li><img src="./images/left_arrow02.png" alt="aroow"></li>
-        <li><img src="./images/left_arrow01.png" alt="aroow"></li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li><img src="./images/right_arrow01.png" alt="aroow"></li>
-        <li><img src="./images/right_arrow02.png" alt="aroow"></li>
-    </ul> -->
     <div class="footer_wrap">
         <footer class="footer kor">
             <ul class="footer_left">

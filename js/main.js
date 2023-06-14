@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lnbList03 = document.getElementById('lnb_list03')
     const lnbList04 = document.getElementById('lnb_list04')
     const gnbImg = document.getElementsByClassName('gnb_img')
+    const headerA = document.querySelectorAll('a')
     
     menwNew.addEventListener('mouseover', () => (
         openList(lnbList01)
@@ -38,27 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
     ))
     header.addEventListener('mouseover', function(){
         headerFix.style.backgroundColor = '#FCF9EE'
-        logoText.style.color = '#000'
-        menwNew.style.color = '#000'
-        menuScent.style.color = '#000'
-        menuShop.style.color = '#000'
-        menuAbout.style.color = '#000'
-        let len = gnbImg.length;
-        for (let i = 0; i < len; i++) {
+        for (let i = 0; i < gnbImg.length; i++) {
             gnbImg.item(i).style.filter = 'invert(0%)'
+        }
+        for (let i = 0; i < headerA.length; i++) {
+            headerA[i].style.color = '#000'
         }
     })
     header.addEventListener('mouseout', function(){
         headerFix.style.backgroundColor = 'rgba(252, 249, 238, 0)'
-        logoText.style.color = '#fff'
-        menwNew.style.color = '#fff'
-        menuScent.style.color = '#fff'
-        menuShop.style.color = '#fff'
-        menuAbout.style.color = '#fff'
-        let len = gnbImg.length;
-        for (let i = 0; i < len; i++) {
+        for (let i = 0; i < gnbImg.length; i++) {
             gnbImg.item(i).style.filter = 'invert(100%)'
         }
+        headerA.forEach((e)=>{
+            e.style.color = '#fff'
+        })
     })
     function openList(list) {
         list.style.height = '80px'
@@ -134,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 취향 테스트 */
     const testPage = document.getElementsByClassName('test')[0]
     const testStart = document.getElementsByClassName('test_start')[0]
-    const testBtn = document.querySelector('.test_start > span')
+    const startBtn = document.getElementById('start_btn')
     testPage.addEventListener('mouseover', big)
     testPage.addEventListener('mouseout', small)
 
@@ -143,17 +138,74 @@ document.addEventListener('DOMContentLoaded', () => {
         testPage.style.transition = 'all 0.3s'
         testStart.style.marginTop = '120px'
         testStart.style.transition = 'all 0.3s'
-        testBtn.style.marginTop = '135px'
-        testBtn.style.transition = 'all 0.3s'
+        startBtn.style.marginTop = '135px'
+        startBtn.style.transition = 'all 0.3s'
     }
     function small () {
         testPage.style.height = '300px'
         testPage.style.transition = 'all 0.3s'
         testStart.style.marginTop = '0px'
         testStart.style.transition = 'all 0.3s'
-        testBtn.style.marginTop = '60px'
-        testBtn.style.transition = 'all 0.3s'
-    }
+        startBtn.style.marginTop = '60px'
+        startBtn.style.transition = 'all 0.3s'
+    } // hover 이벤트
+
+    const inputName = document.getElementById('input_name')
+    inputName.addEventListener('keyup', ()=> {
+        let inputNameTxt = document.getElementById('input_name').value
+        document.getElementById('user_name').innerText = inputNameTxt +'님에게 운명같이 찾아온 향수는..'
+    }) // 테스터 이름 입력 반환
+
+    const testQ = document.querySelectorAll('.test_question') 
+    const testStartImg = document.getElementsByClassName('test_start_bg')[0]
+    startBtn.addEventListener('click', () => {
+        testQ[3].style.opacity = '1'
+        testStart.style.opacity = '0'
+        testStart.style.zIndex = '-10'
+        testStartImg.style.display = 'none'
+    }) // start 버튼 클릭하면 다음 페이지로 넘어감
+
+    const testBtn = document.querySelectorAll('.test_btn')
+    const c01Btn = document.getElementById('c01')
+    const c02Btn = document.getElementById('c02')
+    const c03Btn = document.getElementById('c03')
+    const c04Btn = document.getElementById('c04')
+    const c05Btn = document.getElementById('c05')
+    const c06Btn = document.getElementById('c06')
+    const c07Btn = document.getElementById('c07')
+    c01Btn.value = 'go2'
+    c02Btn.value = 'go3'
+    c03Btn.value = 'go4'
+    c04Btn.value = 'go4'
+    c05Btn.value = 'go4'
+    c06Btn.value = 'go4'
+    c07Btn.value = 'go1'
+
+    testBtn.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            if(this.value === 'go2') {
+                testQ[3].style.display = 'none'
+                testQ[2].style.opacity = '1'
+            } else if (this.value === 'go3') {
+                testQ[3].style.display = 'none'
+                testQ[2].style.display = 'none'
+                testQ[1].style.opacity = '1'
+            } else if (this.value === 'go4') {
+                testQ[3].style.display = 'none'
+                testQ[2].style.display = 'none'
+                testQ[1].style.display = 'none'
+                testQ[0].style.opacity = '1'
+            } else if (this.value === 'go1') {
+                testStart.style.opacity = '1'
+                testStart.style.zIndex = '5'
+                testStartImg.style.display = 'block'
+                testQ[0].style.opacity = '0'
+                testQ[1].style.opacity = '0'
+                testQ[2].style.opacity = '0'
+                testQ[3].style.opacity = '0'
+            }
+        })
+    }) // 선택 버튼에 따라 결과 페이지로 이동
 
     /* 메인페이지 스와이퍼 */
     window.onload = function() {
@@ -197,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 탑버튼 */
     const topBtn = document.querySelector('.top_btn')
     window.addEventListener('scroll', ()=>{
-        if(window.scrollY>200) {gsap.to(topBtn,0.3, {
+        if(window.scrollY>500) {gsap.to(topBtn,0.3, {
             opacity:1
         })} else {
             gsap.to(topBtn,0.3, {
@@ -214,23 +266,37 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 탭 시트 바꾸기 */
     const tabLabel = document.querySelectorAll('.tab_label > li')
     const tabSheet = document.querySelectorAll('.tab_sheet > li')
-    const itemEls = document.querySelectorAll('.item_box div' )
+    const itemBox = document.querySelectorAll('.item_box')
+    const itemEls = document.querySelectorAll('.tab_item' )
     for(let i=0; i<tabLabel.length;i++) {
         tabLabel[i].addEventListener('click',function(){
+            const iteMBoxChildren = itemBox[i].childNodes
             for(let j=0; j<tabSheet.length;j++) {
                 tabSheet[j].classList.remove('tab_on')
             }
             tabSheet[i].classList.add('tab_on')
-            itemEls.forEach((itemEl, index) => {
-                if (itemEl.parentNode.classList.contains('tab_on')) {
-                    gsap.to(itemEl, 1, {
-                        delay: index * 0.2,
-                        opacity: 1
-                    });
+            for (let k = 0; k < iteMBoxChildren.length; k++) {
+                if (iteMBoxChildren[k].className === 'tab_item') {
+                  iteMBoxChildren[k].style.opacity = '1';
                 }
-            });
+            }
         })
     }
+    window.addEventListener('scroll', ()=>{
+        if(window.scrollY>3200) {
+            gsap.to(itemEls[0],0.5,{
+                opacity:1
+            })
+            gsap.to(itemEls[1],0.5,{
+                delay:0.7,
+                opacity:1
+            })
+            gsap.to(itemEls[2],0.5,{
+                delay:1.3,
+                opacity:1
+            })
+        } 
+    })
 
     /* 인스타 모달 팝업 열기 */
     const body = document.querySelector('body');

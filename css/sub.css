@@ -255,8 +255,9 @@ font-style: normal;
   width: 100%;
   height: 100%;
 }
-
 /* ----------header_outer---------- */
+
+
 /* ----------cart---------- */
 #cart {
   position: fixed;
@@ -295,8 +296,9 @@ font-style: normal;
   text-align: center;
   margin-top: 330px;
 }
-
 /* ----------cart---------- */
+
+
 /* ----------container---------- */
 .container {
   width: 1300px;
@@ -451,7 +453,59 @@ font-style: normal;
         img {filter: invert(100%);}
     }
 } //pagination */
+
+.container #pagination_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 305px;
+  margin: 30px auto 150px;
+}
+.container #pagination_container .prev_btn, .container #pagination_container .next_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25px; height: 25px; 
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+.container #pagination_container img {
+  width: 80%; height: auto;
+  filter: invert(50%);
+}
+.container #pagination_container img:hover {
+  filter: invert(30%);
+}
+.container #pagination_container .num_btn_wrap .num_btn {
+  display: inline-block;
+  width: 25px; height: 25px; line-height: 25px;
+  font-size: 15px;
+  font-family: 'Pretendard-Regular';
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.container #pagination_container .num_btn_wrap .num_btn.selected {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #333;
+}
+.container #pagination_container .num_btn_wrap .num_btn:hover {
+  font-weight: 600;
+}
+.container #pagination_container .num_btn_wrap .num_btn:nth-child(2) {
+  margin: 0px 5px;
+}
 /* ----------container---------- */
+
+
 /* ----------popup---------- */
 .popup_wrap {
   display: none;
@@ -529,8 +583,9 @@ font-style: normal;
   right: 25px;
   cursor: pointer;
 }
-
 /* ----------popup---------- */
+
+
 /* ----------footer---------- */
 .footer_wrap {
   width: 100%;
@@ -626,5 +681,4 @@ font-style: normal;
   width: 100%;
   height: auto;
 }
-
 /* ----------footer---------- *//*# sourceMappingURL=sub.css.map */
